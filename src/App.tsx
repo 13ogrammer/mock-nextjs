@@ -1,8 +1,18 @@
-import React from 'react'
+import { Router } from './Router'
+import Route from './Route'
+import Breeds from './Breeds'
+import Breed from './Breed'
 
-function App() {
+const App = () => {
   return (
-    <div>Hello</div>
+    <Router>
+      <Route path="/">
+        <Breeds />
+      </Route>
+      <Route path="/breed">
+        <Breed />
+      </Route>
+    </Router>
   )
 }
 
