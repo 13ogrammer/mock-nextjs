@@ -1,11 +1,11 @@
 import { Router } from './Router'
 import Route from './Route'
-import Breeds from './Breeds'
-import Breed from './Breed'
+import Breeds from './pages/breeds'
+import Breed from './pages/breed'
 
-const App = () => {
+const App = ({ initialPath}: {initialPath: string}) => {
   return (
-    <Router>
+    <Router initialPath={initialPath}>
       <Route path="/">
         <Breeds />
       </Route>

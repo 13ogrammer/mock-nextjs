@@ -3,14 +3,14 @@ import React, {createContext} from 'react'
 
 export const RouterContext = createContext({
   path: '',
-  // eslint-disable-next-line
   pushState: (path:string) => {},
-  // eslint-disable-next-line
   replaceState: (path:string) => {},
 })
 
-export const Router = ({children}: {children: React.ReactNode}) => {
-  const [path, setPath] = React.useState(window.location.pathname)
+const canWindow = () => typeof window !== 'undefined'
+
+export const Router = ({initialPath, children}: {initialPath: string; children: React.ReactNode}) => {
+  const [path, setPath] = React.useState(canWindow() ? window.location.pathname: initialPath)
 
   const pushState = (path: string) => {
     window.history.pushState({}, '', path)
